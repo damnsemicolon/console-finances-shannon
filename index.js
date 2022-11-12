@@ -86,6 +86,27 @@ var finances = [
 ['Jan-2017', 138230],
 ['Feb-2017', 671099]
 ];
+// var testing = [1, 2, 3, 4, 5];
+var pastMonth = "";
+var pastValue = 0;
+var currentMonth = "";
+var currentValue = 0;
+var totalAmount = 0
+
+for (var i = 0; i < 3; i++) {
+    var financesAmount = finances[i];
+    // console.log("financesAmount" + financesAmount);
+    // currentMonth = financesAmount[0];
+    currentValue = financesAmount[1];
+    totalAmount = totalAmount + currentValue[i];
+    // console.log(currentMonth);
+    console.log(currentValue);
+    console.log(totalAmount);
+}
+
+
+
+// var sum = testing.reduce((a, b) => a + b, 0)
 
 // Instructions
 // DONE Create a new GitHub repo called Console-Finances. Then, clone it to your computer.
@@ -113,9 +134,11 @@ console.log("Financial Analysis\n----------------------------")
 // DONE Financial Analysis
 // DONE ----------------------------
 // DONE Total Months: 25
-console.log(finances.length)
+console.log("Total Months: " + finances.length)
 // Total: $2561231
-console.log(finances.sum)
+
+console.log("Total: $" + sum)
+console.log("hello")
 // Average  Change: $-2315.12
 // Greatest Increase in Profits: Feb-2012 ($1926159)
 // Greatest Decrease in Profits: Sep-2013 ($-2196167)
