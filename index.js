@@ -92,8 +92,8 @@ var totalAmount = 0;
 var previousValue = 0;
 var previousPL = 0;
 var totalPL = 0;
-var greatestIncrease = 0;
-var greatestDecrease = 0;
+var greatestIncrease = ["",0];
+var greatestDecrease = ["",0];
 
 // Script to show string of first and second line
     // Financial Analysis (DONE)
@@ -123,13 +123,18 @@ for (var i = 0; i < finances.length; i++) {
      // Average Change (Done)
 
 // Script to calculate if previous change in PL is greatest increase or decrease
-    if (previousPL > greatestIncreaseValue)
+    if (previousPL > greatestIncrease[1]) {
+        greatestIncrease = [financesAmount[0], previousPL];
+    }
+    if (previousPL < greatestDecrease[1]) {
+        greatestDecrease = [financesAmount[0], previousPL];
+    }
 }
 
 console.log ("Average Change: $" + (totalPL / finances.length).toFixed(2)); // toFixed(2) is to round up output to 2 decimal places
 console.log ("Total: $" + totalAmount);
-
-
+console.log ("Greatest Increase in profits: " + greatestIncrease[0] + " ($" + greatestIncrease[1] + ")");
+console.log ("Greatest Decrease in profits: " + greatestDecrease[0] + " ($" + greatestDecrease[1] + ")");
 
 
 
