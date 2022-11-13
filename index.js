@@ -87,50 +87,53 @@ var finances = [
 ['Feb-2017', 671099]
 ];
 
-var pastMonth = "";
-var pastValue = 0;
-var currentMonth = "";
 var currentValue = 0;
 var totalAmount = 0;
+var previousValue = 0;
+var previousPL = 0;
+var totalPL = 0;
+var greatestIncrease = 0;
+var greatestDecrease = 0;
+
+// Script to show string of first and second line
+    // Financial Analysis (DONE)
+    // ---------------------------- (DONE)
+console.log("Financial Analysis\n----------------------------");
 
 
-// Instructions
-// DONE Create a new GitHub repo called Console-Finances. Then, clone it to your computer.
+// Script to get the total number of months in the array: finances.length
+    // Example: Total Months: 25 (DONE)
+console.log("Total Months: " + finances.length);
 
-// DONE Copy the starter files in your local git repository.
-
-// You have been given a dataset composed of arrays with two fields, Date and Profit/Losses.
-
-// Your task is to write JavaScript code that analyzes the records to calculate each of the following:
-
-// The total number of months included in the dataset.
-
-// The net total amount of Profit/Losses over the entire period.
-
-// The average of the changes in Profit/Losses over the entire period.
-
-// You will need to track what the total change in profits are from month to month and then find the average.
-// (Total/Number of months)
-// The greatest increase in profits (date and amount) over the entire period.
-
-// The greatest decrease in losses (date and amount) over the entire period.
-
-// When you open your code in the browser your resulting analysis should look similar to the following:
-console.log("Financial Analysis\n----------------------------")
-// DONE Financial Analysis
-// DONE ----------------------------
-// DONE Total Months: 25
-console.log("Total Months: " + finances.length)
-// Total: $2561231
-// Script to get the net total amount of profit/losses over the entire period: totalAmount
+// Script to start loop to find out Total Amount, Average Change, Greatest Increase, & Greatest Decrease
 for (var i = 0; i < finances.length; i++) {
+
+// Script to get the net total amount of profit/losses over the entire period: totalAmount
     var financesAmount = finances[i];
     currentValue = financesAmount[1];
-    totalAmount += currentValue;
-}
-console.log("Total: $" + totalAmount);
+    totalAmount += currentValue; // "+=" is shorthand for 'add to existing total 
+    // Total Amount (Done)
 
-// Average  Change: $-2315.12
+// Script to get the average change of profit/losses over the entire period: averageChange
+// change of each month / total months = average Change
+
+    previousPL = currentValue - previousValue;
+    totalPL += previousPL;
+    previousValue = currentValue;
+     // Average Change (Done)
+
+// Script to calculate if previous change in PL is greatest increase or decrease
+    if (previousPL > greatestIncreaseValue)
+}
+
+console.log ("Average Change: $" + (totalPL / finances.length).toFixed(2)); // toFixed(2) is to round up output to 2 decimal places
+console.log ("Total: $" + totalAmount);
+
+
+
+
+
+
 // Greatest Increase in Profits: Feb-2012 ($1926159)
 // Greatest Decrease in Profits: Sep-2013 ($-2196167)
 // Your final code should print the analysis to the console.
