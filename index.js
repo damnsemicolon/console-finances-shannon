@@ -97,23 +97,22 @@ var greatestIncrease = ["",0];
 var greatestDecrease = ["",0];
 
 // TASK 1: Use console.log("") to show in browser console.
-// TASK 2: Get the total number of months in the array with ".length" with finances var.
-// TASK 3 Set up start loop to find out Total Amount, Average Change, Greatest Increase, & Greatest Decrease.
+// TASK 2: Get the total number of months in the array with ".length" with var finances .
+// TASK 3: Set up start loop to find out Total Amount, Average Change, Greatest Increase, & Greatest Decrease:
 for (var i = 0; i < finances.length; i++) {
 
-// Script to get the net total amount of profit/losses over the entire period: totalAmount
+// TASK 4:Get the net total amount of profit/losses over the entire period with var totalAmount:
     var financesAmount = finances[i];
     currentValue = financesAmount[1];
     totalAmount += currentValue; // "+=" is shorthand for 'add to existing total 
 
-// Script to get the average change of profit/losses over the entire period: averageChange
-// change of each month / total months = average Change
-
+// TASK 5:Get the average change of profit/losses over the entire period with var averageChange:
+// Change of each month / (total months -1) = average Change
     previousPL = currentValue - previousValue;
     totalPL += previousPL;
     previousValue = currentValue;
 
-// Script to calculate if previous change in PL is greatest increase or decrease
+// Task 5:Get the Greatest increase/decrease by calculating if previous change in PL is > or < than current iteration:
     if (previousPL > greatestIncrease[1]) {
         greatestIncrease = [financesAmount[0], previousPL];
     }
@@ -121,29 +120,8 @@ for (var i = 0; i < finances.length; i++) {
         greatestDecrease = [financesAmount[0], previousPL];
     }
 }
-// Output to console using concatenation:
-console.log("Financial Analysis\n----------------------------\nTotal Months: " + finances.length+"\nAverage Change: $" + (totalPL/(finances.length-1)).toFixed(2)+"\nTotal: $" + totalAmount+"\nGreatest Increase in profits: " + greatestIncrease[0] + " ($" + greatestIncrease[1] + ")\nGreatest Decrease in profits: " + greatestDecrease[0] + " ($" + greatestDecrease[1] + ")");
 
-// Technical Acceptance Criteria: 40%
-// Satisfies all of the above acceptance criteria.
-// Deployment: 32%
-// Application deployed at live URL.
+// Task 6: Set up console.log to output to console using concatenation:
+console.log("Financial Analysis\n----------------------------\nTotal Months: " + finances.length+"\nTotal: $" + totalAmount+"\nAverage Change: $" + (totalPL/(finances.length-1)).toFixed(2)+"\nGreatest Increase in Profits: " + greatestIncrease[0] + " ($" + greatestIncrease[1] + ")\nGreatest Decrease in Profits: " + greatestDecrease[0] + " ($" + greatestDecrease[1] + ")");
 
-// Application loads with no errors.
-
-// Application GitHub URL submitted.
-
-// GitHub repository contains application code.
-
-// Repository Quality: 12%
-
-
-// Repository contains quality readme with description, screenshot, link to deployed application.
-
-// Review
-// You are required to submit BOTH of the following for review:
-
-// The URL of the deployed application.
-
-// The URL of the GitHub repository that contains your code. Give the repository a unique name and include a README file that describes the project.
-
+// THE END, phew that was tough ¯\_(ツ)_/¯
