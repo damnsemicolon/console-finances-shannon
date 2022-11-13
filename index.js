@@ -87,32 +87,24 @@ var finances = [
 ['Feb-2017', 671099]
 ];
 
+// Line 91-97 Declaring variables with var statements:
 var currentValue = 0;
 var totalAmount = 0;
-var previousValue = 0;
+var previousValue = 867884;
 var previousPL = 0;
 var totalPL = 0;
 var greatestIncrease = ["",0];
 var greatestDecrease = ["",0];
 
-// Script to show string of first and second line
-    // Financial Analysis (DONE)
-    // ---------------------------- (DONE)
-console.log("Financial Analysis\n----------------------------");
-
-
-// Script to get the total number of months in the array: finances.length
-    // Example: Total Months: 25 (DONE)
-console.log("Total Months: " + finances.length);
-
-// Script to start loop to find out Total Amount, Average Change, Greatest Increase, & Greatest Decrease
+// TASK 1: Use console.log("") to show in browser console.
+// TASK 2: Get the total number of months in the array with ".length" with finances var.
+// TASK 3 Set up start loop to find out Total Amount, Average Change, Greatest Increase, & Greatest Decrease.
 for (var i = 0; i < finances.length; i++) {
 
 // Script to get the net total amount of profit/losses over the entire period: totalAmount
     var financesAmount = finances[i];
     currentValue = financesAmount[1];
     totalAmount += currentValue; // "+=" is shorthand for 'add to existing total 
-    // Total Amount (Done)
 
 // Script to get the average change of profit/losses over the entire period: averageChange
 // change of each month / total months = average Change
@@ -120,7 +112,6 @@ for (var i = 0; i < finances.length; i++) {
     previousPL = currentValue - previousValue;
     totalPL += previousPL;
     previousValue = currentValue;
-     // Average Change (Done)
 
 // Script to calculate if previous change in PL is greatest increase or decrease
     if (previousPL > greatestIncrease[1]) {
@@ -130,29 +121,8 @@ for (var i = 0; i < finances.length; i++) {
         greatestDecrease = [financesAmount[0], previousPL];
     }
 }
-
-console.log ("Average Change: $" + (totalPL / finances.length).toFixed(2)); // toFixed(2) is to round up output to 2 decimal places
-console.log ("Total: $" + totalAmount);
-console.log ("Greatest Increase in profits: " + greatestIncrease[0] + " ($" + greatestIncrease[1] + ")");
-console.log ("Greatest Decrease in profits: " + greatestDecrease[0] + " ($" + greatestDecrease[1] + ")");
-
-
-
-
-// Greatest Increase in Profits: Feb-2012 ($1926159)
-// Greatest Decrease in Profits: Sep-2013 ($-2196167)
-// Your final code should print the analysis to the console.
-
-// Hints:
-
-// You will need to do some research on your own for this project!
-
-// Remember, in order to combine strings and variables in the console you will need to use concatenation.
-
-// How do you only print to the nearest 100th in JavaScript?
-
-// Grading Requirements
-// This homework is graded based on the following criteria:
+// Output to console using concatenation:
+console.log("Financial Analysis\n----------------------------\nTotal Months: " + finances.length+"\nAverage Change: $" + (totalPL/(finances.length-1)).toFixed(2)+"\nTotal: $" + totalAmount+"\nGreatest Increase in profits: " + greatestIncrease[0] + " ($" + greatestIncrease[1] + ")\nGreatest Decrease in profits: " + greatestDecrease[0] + " ($" + greatestDecrease[1] + ")");
 
 // Technical Acceptance Criteria: 40%
 // Satisfies all of the above acceptance criteria.
@@ -166,13 +136,7 @@ console.log ("Greatest Decrease in profits: " + greatestDecrease[0] + " ($" + gr
 // GitHub repository contains application code.
 
 // Repository Quality: 12%
-// Repository has a unique name.
 
-// Repository follows best practices for file structure and naming conventions.
-
-// Repository follows best practices for variable naming conventions, indentation, quality comments, etc.
-
-// Repository contains multiple descriptive commit messages.
 
 // Repository contains quality readme with description, screenshot, link to deployed application.
 
@@ -183,5 +147,3 @@ console.log ("Greatest Decrease in profits: " + greatestDecrease[0] + " ($" + gr
 
 // The URL of the GitHub repository that contains your code. Give the repository a unique name and include a README file that describes the project.
 
-// Copyright
-// © 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
